@@ -29,8 +29,6 @@ body {
   padding: 20px;
   font-family: 'DM Sans', sans-serif;
   font-size: 12px;
-  background: -webkit-gradient(linear, left bottom, left top, from(#be93c5), to(#7bc6cc));
-  background: linear-gradient(to top, #be93c5, #7bc6cc);
 }
 
 @media screen and (max-width: 900px) {
@@ -452,6 +450,36 @@ input[type=text] {
 .line-header {
   position: absolute;
   padding: 0 10px;
+}
+
+.btn-new-1 {
+  background-color: #499d77;
+  border: none;
+  color: #fff;
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 20px;
+  width: 100%;
+  max-width: 160px;
+  margin: 20px 0 10px 0;
+  display: block;
+}
+
+.btn-new-2 {
+  background-color: #499d77;
+  border: none;
+  color: #fff;
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 20px;
+  width: 100%;
+  max-width: 160px;
+  margin: 10px 0 0 0;
+  display: block;
 }
 
 .content-line-hero .owl-dots {

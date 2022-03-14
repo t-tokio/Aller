@@ -12,6 +12,7 @@ $primary-font-color: #232428;
 $secondary-font-color: #adadad;
 $active-color: #499d77;
 
+
 $green-dark: #51a380;
 $green-light: #e6f1ed;
 
@@ -31,7 +32,6 @@ body {
   padding: 20px;
   font-family: 'DM Sans', sans-serif;;
   font-size: 12px;
-  background: linear-gradient(to top, #be93c5, #7bc6cc);
 
   @media screen and (max-width: 900px) {
     & { padding: 0; }
@@ -394,6 +394,38 @@ input[type=text] {
 .line-header {
   position: absolute;
   padding: 0 10px;
+}
+
+.btn-new-1 {
+  background-color: $active-color;
+  border: none;
+  color: #fff;
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 20px;
+  width: 100%;
+  max-width: 160px;
+  margin: 20px 0 10px 0;
+  display: block;
+
+}
+
+.btn-new-2 {
+  background-color: $active-color;
+  border: none;
+  color: #fff;
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 20px;
+  width: 100%;
+  max-width: 160px;
+  margin: 10px 0 0 0;
+  display: block;
+
 }
 
 .content-line-hero .owl-dots {
