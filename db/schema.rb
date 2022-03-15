@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2022_03_14_083849) do
     t.date "birthday", null: false
     t.integer "sex_id", null: false
     t.integer "existence_id", null: false
-    t.string "food_allergy", null: false
+    t.string "food_allergy"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

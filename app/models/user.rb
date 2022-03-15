@@ -26,7 +26,6 @@ class User < ApplicationRecord
   end
 
   validates :birthday, presence: true
-  validates :food_allergy, presence: true
 
   #ジャンルの選択が「--」の時は保存できないようにする
   validates :sex_id, numericality: { other_than: 1 , message: "性別欄を選択してください"}

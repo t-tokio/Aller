@@ -14,7 +14,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       t.date   :birthday,           null: false
       t.integer :sex_id,            null: false
       t.integer :existence_id,      null: false
-      t.string :food_allergy,       null: false
+      t.string :food_allergy
 
 
       ## Recoverable
