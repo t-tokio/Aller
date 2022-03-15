@@ -64,8 +64,13 @@
       </div>
 
       <div class="action-buttons-wrapper">
-        <button class="action-buttons btn-record">ログイン</button>
-        <button class="action-buttons btn-upload">新規登録</button>
+        <% if user_signed_in? %>
+          <button class="action-buttons btn-record"><%= link_to current_user.nickname, root_path, class: "user-nickname" %></button>
+          <button class="action-buttons btn-upload"><%= link_to 'ログアウト', destroy_user_session_path , method: :delete, class: "logout" %></button>
+        <% else %>
+          <button class="action-buttons btn-record"><%= link_to 'ログイン', new_user_session_path, class: "login" %></button>
+          <button class="action-buttons btn-upload"><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></button>
+        <% end %>
       </div>
     </div>
     <div class="page-right-content">
