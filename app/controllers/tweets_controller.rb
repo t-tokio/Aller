@@ -4,11 +4,11 @@ class TweetsController < ApplicationController
   before_action :move_to_index, only: [:edit]
 
   def index
-   @tweets = Tweet.includes(:user)
+    @tweets = Tweet.includes(:user)
   end
 
   def new
-   @tweet = Tweet.new
+    @tweet = Tweet.new
   end
 
   def create
@@ -21,12 +21,11 @@ class TweetsController < ApplicationController
   end
 
   def show
-    #@comment = Comment.new
-    #@comments = @tweet.comments.includes(:user)
+    @comment = Comment.new
+    @comments = @tweet.comments.includes(:user)
   end
 
   def edit
-
   end
 
   def update
@@ -41,7 +40,6 @@ class TweetsController < ApplicationController
     @tweet.destroy
     redirect_to root_path
   end
-
 
   private
 
