@@ -5,11 +5,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :tweets
+  has_many :comments
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :sex
   belongs_to :existence
-
 
   validates :nickname, presence: true
 
@@ -28,8 +28,7 @@ class User < ApplicationRecord
 
   validates :birthday, presence: true
 
-  #ジャンルの選択が「--」の時は保存できないようにする
-  validates :sex_id, numericality: { other_than: 1 , message: "性別欄を選択してください"}
-  validates :existence_id, numericality: { other_than: 1 , message: "食物アレルギーの有無を選択してください"}
-
+  # ジャンルの選択が「--」の時は保存できないようにする
+  validates :sex_id, numericality: { other_than: 1, message: '性別欄を選択してください' }
+  validates :existence_id, numericality: { other_than: 1, message: '食物アレルギーの有無を選択してください' }
 end
