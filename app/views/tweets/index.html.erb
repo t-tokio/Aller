@@ -105,7 +105,7 @@
             <div class="video-description-wrapper">
               <p class="video-description-header"><%= tweet.title %></p>
               <p class="video-description-subheader"><%= "by#{tweet.user.nickname}" %></p>
-              <p class="video-description-info">いいね <span><%= l tweet.created_at, format: :short %></span></p>
+              <p class="video-description-info">いいね <span><%= tweet.created_at.strftime('%Y/%m/%d %H:%M:%S') %></span></p>
             </div>
           </div>
           <% end %>
