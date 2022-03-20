@@ -3,7 +3,7 @@
   <p class="prototype__hedding">
     <%= @tweet.title%>
   </p>
-  <%= link_to "by#{@tweet.user.nickname}", "#", class: :prototype__user %>
+  <%= link_to "by#{@tweet.user.nickname}", user_path(@tweet.user.id), class: :prototype__user %>
   <%# プロトタイプの投稿者とログインしているユーザーが同じであれば以下を表示する %>
     <div class="prototype__manage">
       <% if user_signed_in? && current_user.id == @tweet.user_id %>
@@ -42,7 +42,7 @@
       <% @comments.each do |comment| %>
         <li class="comments_list">
             <%= comment.text %>
-            <%= link_to comment.user.nickname, "#", class: :comment_user %>
+            <%= link_to comment.user.nickname, user_path(@tweet.user.id), class: :comment_user %>
         </li>
       <%end%>
       <%# // 投稿に紐づくコメントを一覧する処理を記述する %>

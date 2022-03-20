@@ -1,0 +1,51 @@
+<div class="main">
+  <div class="inner">
+    <div class="user__wrapper">
+    <%= button_to 'トップページ', root_path, method: :get %>
+      <h2 class="page-heading">
+        <%= "#{@nickname}さんの情報"%>
+      </h2>
+      <table class="table">
+        <tbody>
+          <tr>
+            <th class="table__col1">名前</th>
+            <td class="table__col2"><%= @nickname %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">性別</th>
+            <td class="table__col2"><%= @user.sex[:name] %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">食物アレルギーの有無</th>
+            <td class="table__col2"><%= @user.existence[:name] %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">対象の食材</th>
+            <% if @user.food_allergy.present? %>
+              <td class="table__col2"><%= @user.food_allergy %></td>
+            <% else %>
+              <td class="table__col2">該当なし</td>
+            <% end %>
+          </tr>
+        </tbody>
+      </table>
+      <h2 class="page-heading">
+        <%= "#{@nickname}さんのツイート" %>
+      </h2>
+      <div class="user__card">
+        <div class="item video-box-wrapper">
+          <% @tweets.each do |tweet| %>
+            <div class="img-preview">
+            <%= image_tag(tweet.image) %>
+            </div>
+            <div class="video-description-wrapper">
+              <p class="video-description-header"><%= tweet.title %></p>
+              <p class="video-description-subheader"><%= "by#{tweet.user.nickname}" %></p>
+              <p class="video-description-info">いいね <span><%= tweet.created_at.strftime('%Y/%m/%d %H:%M:%S') %></span></p>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
