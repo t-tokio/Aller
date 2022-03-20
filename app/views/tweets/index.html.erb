@@ -11,19 +11,32 @@
       </button>
     </div>
     <div class="left-area-content">
+      <% if user_signed_in? %>
       <div class="profile">
       <%= image_tag '/assets/sample.jpeg' %>
         <div class="profile-info">
-          <span class="profile-name">名前さん</span>
+          <%= link_to "#{current_user.nickname}さん", user_path(current_user.id), class: "profile-name"%>
         </div>
       </div>
+      <% end %>
       <div class="page-link-list">
-        <a href="#" class="item-link" id="pageLink">
-          <svg class="link-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-home" viewBox="0 0 24 24">
-            <defs />
-            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
-            <path d="M9 22V12h6v10" /></svg>
-          マイページ</a>
+        <% if user_signed_in? %>
+          <%= link_to user_path(current_user.id), class:"item-link" do %>
+            <svg class="link-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-home" viewBox="0 0 24 24">
+              <defs />
+              <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+              <path d="M9 22V12h6v10" /></svg>
+          マイページ
+          <% end %>
+        <% else %>
+          <%= link_to new_user_session_path, class:"item-link" do %>
+            <svg class="link-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-home" viewBox="0 0 24 24">
+              <defs />
+              <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+              <path d="M9 22V12h6v10" /></svg>
+          マイページ
+          <% end %>
+        <% end %>
         <a href="#" class="item-link" id="pageLink">
           <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart">
             <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
@@ -65,11 +78,19 @@
 
       <div class="action-buttons-wrapper">
         <% if user_signed_in? %>
-          <button class="action-buttons btn-record"><%= link_to current_user.nickname, root_path, class: "user-nickname" %></button>
-          <button class="action-buttons btn-upload"><%= link_to 'ログアウト', destroy_user_session_path , method: :delete, class: "logout" %></button>
+          <%= link_to user_path(current_user.id), class: "user-nickname" do%>
+            <button class="action-buttons btn-record"><%= current_user.nickname%></button>
+          <% end %>
+          <%= link_to destroy_user_session_path , method: :delete, class: "logout" do%>
+            <button class="action-buttons btn-upload">ログアウト</button>
+          <% end %>
         <% else %>
-          <button class="action-buttons btn-record"><%= link_to 'ログイン', new_user_session_path, class: "login" %></button>
-          <button class="action-buttons btn-upload"><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></button>
+          <%= link_to new_user_session_path, class: "login" do%>
+            <button class="action-buttons btn-record">ログイン</button>
+          <% end %>
+          <%= link_to new_user_registration_path, class: "sign-up" do%>
+            <button class="action-buttons btn-upload">新規登録</button>
+          <% end %>
         <% end %>
       </div>
     </div>
@@ -83,8 +104,12 @@
           <div class="item hero-img-wrapper img-1">
             <div class="upload-text-wrapper">
               <p class="upload-text-info">Aller <span> みんなで食物アレルギーを共有しよう</span>
-              <button class="btn-new-1"><%= link_to "つぶやき", new_tweet_path %></button>
+              <% if user_signed_in? %>
+              <%= link_to new_tweet_path do%>
+                <button class="btn-new-1">つぶやき</button>
+              <% end %>
               <button class="btn-new-2">寄付募集</button>
+              <% end %>
               </p>
             </div>
             <%= image_tag '/assets/food',:size => '500x300'%>
@@ -104,7 +129,7 @@
             </div>
             <div class="video-description-wrapper">
               <p class="video-description-header"><%= tweet.title %></p>
-              <p class="video-description-subheader"><%= "by#{tweet.user.nickname}" %></p>
+              <p class="video-description-subheader"><%= link_to "by#{tweet.user.nickname}", user_path(tweet.user.id) %></p>
               <p class="video-description-info">いいね <span><%= tweet.created_at.strftime('%Y/%m/%d %H:%M:%S') %></span></p>
             </div>
           </div>
