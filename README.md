@@ -163,12 +163,11 @@ https://docs.google.com/spreadsheets/d/1Ib3H4wc7gvzvvtNCX9Yekyd6GwmPySua3otuh5Py
 
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
-| date          | integer    | null: false                    |
-| time          | integer    | null: false                    |
+| datetime      | datetime   | null: false                    |
 | age_id        | integer    | null: false                    |
 | food          | string     | null: false                    |
-| quantity_id   | integer    | null: false                    |
-| unit_id       | integer    | null: false                    |
+| quantity      | integer    |                                |
+| unit_id       | integer    |                                |
 | state_id      | integer    | null: false                    |
 | note          | text       |                                |
 | user          | references | null: false, foreign_key: true |
