@@ -1,2 +1,24 @@
-<h1>Records#index</h1>
-<p>Find me in app/views/records/index.html.erb</p>
+<div class="record__button">
+  <%= button_to 'トップページ', root_path, method: :get %>
+  <%= button_to '新しく記録する', new_record_path, method: :get %>
+</div>
+
+<ul class='record-lists'>
+  <% @records.each do |record| %>
+    <li class='list'>
+      <%= link_to record_path(record.id) do %>
+        <div class='record-info'>
+          <p class='datetime'>
+            <%= record.datetime %>
+          </p>
+          <h3 class='record-content'>
+            <%= record.food %>
+            <%= record.quantity %>
+            <%= record.unit[:name] %>
+            <%= record.state[:name] %>
+          </h3>
+        </div>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

@@ -7,7 +7,7 @@ class Record < ApplicationRecord
   belongs_to :unit
   belongs_to :state
 
-  validates :datetime, presence: true, format: { with: /\A[0-9]+\z/, message: '半角数字で入力してください' }
+  validates :datetime, presence: true
   validates :food, presence: true
 
 
