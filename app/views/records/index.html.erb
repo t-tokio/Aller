@@ -4,21 +4,26 @@
 </div>
 
 <ul class='record-lists'>
+<%# if current_user.id == @record.user_id %>
   <% @records.each do |record| %>
-    <li class='list'>
-      <%= link_to record_path(record.id) do %>
-        <div class='record-info'>
-          <p class='datetime'>
-            <%= record.datetime %>
-          </p>
-          <h3 class='record-content'>
-            <%= record.food %>
-            <%= record.quantity %>
-            <%= record.unit[:name] %>
-            <%= record.state[:name] %>
-          </h3>
-        </div>
-      <% end %>
-    </li>
-  <% end %>
+    <% if current_user.id == record.user_id %>
+      <li class='list'>
+        <%= link_to record_path(record.id) do %>
+          <div class='record-info'>
+            <p class='datetime'>
+              <%= record.datetime %>
+            </p>
+            <h3 class='record-content'>
+              <%= record.food %>
+              <%= record.quantity %>
+              <%= record.unit[:name] %>
+              <%= record.state[:name] %>
+            </h3>
+          </div>
+        <% end %>
+      </li>
+    <% else %>
+      <h1>記録をしよう!!</h1>
+    <% end %>
+  <%end%>
 </ul>
