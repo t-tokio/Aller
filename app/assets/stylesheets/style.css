@@ -410,7 +410,6 @@ input[type=text] {
   background-color: #62b18f;
 }
 
-
 .action-buttons-wrapper {
   padding: 0 20px;
   -webkit-box-align: center;
@@ -620,13 +619,12 @@ input[type=text] {
 }
 
 .img-preview {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  width: 182px;
+  height: 146px;
 }
 
 .video-box-wrapper {
-  width: 100%;
+  width: 16%;
   height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;

@@ -143,7 +143,7 @@
             </div>
             <div class="video-description-wrapper">
               <p class="video-description-header"><%= tweet.title %></p>
-              <p class="video-description-subheader"><%= link_to "by#{tweet.user.nickname}", user_path(tweet.user.id) %></p>
+              <p class="video-description-subheader"><%= link_to "by #{tweet.user.nickname}", user_path(tweet.user.id) %></p>
               <p class="video-description-info">いいね <span><%= tweet.created_at.strftime('%Y/%m/%d %H:%M:%S') %></span></p>
             </div>
           </div>

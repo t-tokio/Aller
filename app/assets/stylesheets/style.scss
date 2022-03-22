@@ -553,11 +553,12 @@ input[type=text] {
 }
 
 .img-preview {
-  flex: 1;
+  width: 182px;
+  height: 146px;
 }
 
 .video-box-wrapper {
-  width: 100%;
+  width: 16%;
   height: 100%;
   display: flex;
   flex-direction: column;
