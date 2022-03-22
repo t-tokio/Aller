@@ -3,7 +3,7 @@ class RecordsController < ApplicationController
   before_action :move_to_index, only: [:edit]
 
   def index
-    @records = Record.order("created_at DESC")
+    @records = Record.order('created_at DESC')
   end
 
   def new
@@ -38,11 +38,11 @@ class RecordsController < ApplicationController
     redirect_to root_path
   end
 
-
   private
 
   def record_params
-    params.require(:record).permit(:datetime, :age_id, :food, :quantity, :unit_id, :state_id, :note).merge(user_id: current_user.id)
+    params.require(:record).permit(:datetime, :age_id, :food, :quantity, :unit_id, :state_id,
+                                   :note).merge(user_id: current_user.id)
   end
 
   def set_record
@@ -54,5 +54,4 @@ class RecordsController < ApplicationController
     @user = @record.user
     redirect_to(root_path) unless @user == current_user
   end
-
 end
