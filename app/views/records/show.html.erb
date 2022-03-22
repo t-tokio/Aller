@@ -1,0 +1,23 @@
+<div class="record__wrapper">
+  <div class="record__button">
+    <%= button_to 'トップページ', root_path, method: :get %>
+    <%= button_to '記録一覧ページ', records_path, method: :get %>
+  </div>
+  <p class="prototype__hedding">
+    <%= @record.datetime %><br>
+    <%= @record.age[:name] %>
+    <%= @record.food %>
+    <%= @record.quantity %>
+    <%= @record.unit[:name] %>
+    <%= @record.state[:name] %>
+    <%= @record.note %>
+  </p>
+  <%# 記録者とログインしているユーザーが同じであれば以下を表示する %>
+    <div class="prototype__manage">
+      <% if user_signed_in? && current_user.id == @record.user_id %>
+        <%= link_to "編集する", edit_record_path(@record.id), class: :prototype__btn %>
+        <%= link_to "削除する", record_path(@record.id), method: :delete, class: :prototype__btn %>
+      <% end %>
+    </div>
+  <%# // 記録者とログインしているユーザーが同じであれば上記を表示する %>
+</div>
