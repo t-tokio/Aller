@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
     else
       @tweet = @comment.tweet
       @comments = @tweet.comments
-      render "tweets/show"
+      render 'tweets/show'
     end
   end
 

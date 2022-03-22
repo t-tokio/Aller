@@ -28,6 +28,11 @@
               <path d="M9 22V12h6v10" /></svg>
           マイページ
           <% end %>
+          <%= link_to records_path(current_user.id), class:"item-link" do %>
+            <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart">
+            <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" /></svg>
+          記録
+          <% end %>
         <% else %>
           <%= link_to new_user_session_path, class:"item-link" do %>
             <svg class="link-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-home" viewBox="0 0 24 24">
@@ -36,12 +41,13 @@
               <path d="M9 22V12h6v10" /></svg>
           マイページ
           <% end %>
+          <%= link_to new_user_session_path, class:"item-link" do %>
+            <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart">
+            <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" /></svg>
+          記録
+          <% end %>
         <% end %>
-        <a href="#" class="item-link" id="pageLink">
-          <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart">
-            <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
-          </svg>
-          記録</a>
+
         <a href="#" class="item-link" id="pageLink">
           <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-play">
             <path d="M5 3l14 9-14 9V3z" />
@@ -61,7 +67,15 @@
 
 
     </div>
-    <button class="btn-invite">記録する</button>
+    <% if user_signed_in? %>
+      <%= link_to new_record_path do %>
+      <button class="btn-invite">記録する</button>
+      <% end %>
+    <% else %>
+      <%= link_to new_user_session_path do %>
+      <button class="btn-invite">記録する</button>
+      <% end %>
+    <% end %>
   </div>
   <div class="right-area">
     <div class="right-area-upper">
@@ -129,7 +143,7 @@
             </div>
             <div class="video-description-wrapper">
               <p class="video-description-header"><%= tweet.title %></p>
-              <p class="video-description-subheader"><%= link_to "by#{tweet.user.nickname}", user_path(tweet.user.id) %></p>
+              <p class="video-description-subheader"><%= link_to "by #{tweet.user.nickname}", user_path(tweet.user.id) %></p>
               <p class="video-description-info">いいね <span><%= tweet.created_at.strftime('%Y/%m/%d %H:%M:%S') %></span></p>
             </div>
           </div>

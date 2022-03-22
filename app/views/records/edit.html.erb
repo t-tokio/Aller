@@ -1,0 +1,13 @@
+<div class="record__button">
+  <%= button_to 'トップページ', root_path, method: :get %>
+  <%= button_to '記録一覧ページ', records_path, method: :get %>
+</div>
+<div class="main">
+  <div class="inner">
+    <div class="form__wrapper">
+      <h2 class="page-heading">記録編集</h2>
+      <%# 部分テンプレートでフォームを表示する %>
+      <%= render partial: "form", locals: { record: @record } %>
+    </div>
+  </div>
+</div>
