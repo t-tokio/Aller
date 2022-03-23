@@ -135,9 +135,9 @@
         <div class="line-header">
           <span class="header-text">つぶやき</span>
         </div>
-        <div id="owl-slider-2" class="slider-wrapper owl-carousel">
-          <div class="item video-box-wrapper">
+        <div id="owl-slider-2" class="slider-wrapper owl-carousel" style="overflow-x: scroll;">
           <% @tweets.each do |tweet| %>
+          <div class="item video-box-wrapper">
             <div class="img-preview">
             <%= link_to image_tag(tweet.image), tweet_path(tweet.id) %>
             </div>
