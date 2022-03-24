@@ -81,7 +81,8 @@ https://docs.google.com/spreadsheets/d/1Ib3H4wc7gvzvvtNCX9Yekyd6GwmPySua3otuh5Py
 ・active_hash：プルダウンリスト機能<br>
 ・rubocop：コード解析<br>
 ・MiniMagick：ImageMagickをRuby使う機能<br>
-・ImageProcessing：画像サイズ調整機能
+・ImageProcessing：画像サイズ調整機能<br>
+・aws-sdk-s3：画像の保存先をS3へ
 
 # ローカルでの動作方法
 以下のコマンドを順に実行。<br>
