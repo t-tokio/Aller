@@ -1,0 +1,16 @@
+<%= button_to 'トップページ', root_path, method: :get %>
+
+<div id="owl-slider-2" class="slider-wrapper owl-carousel" style="overflow-x: scroll;">
+  <% @tweets.each do |tweet| %>
+    <div class="item video-box-wrapper">
+      <div class="img-preview">
+      <%= link_to image_tag(tweet.image), tweet_path(tweet.id) %>
+      </div>
+      <div class="video-description-wrapper">
+        <p class="video-description-header"><%= tweet.title %></p>
+        <p class="video-description-subheader"><%= link_to "by #{tweet.user.nickname}", user_path(tweet.user.id) %></p>
+        <p class="video-description-info">いいね <span><%= tweet.created_at.strftime('%Y/%m/%d %H:%M:%S') %></span></p>
+      </div>
+    </div>
+  <% end %>
+</div>
