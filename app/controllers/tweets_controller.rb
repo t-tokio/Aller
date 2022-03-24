@@ -1,5 +1,5 @@
 class TweetsController < ApplicationController
-  before_action :authenticate_user!, except: [:show, :index]
+  before_action :authenticate_user!, except: [:show, :index, :search]
   before_action :set_tweet, only: [:edit, :show, :update, :destroy]
   before_action :move_to_index, only: [:edit]
 
@@ -39,6 +39,10 @@ class TweetsController < ApplicationController
   def destroy
     @tweet.destroy
     redirect_to root_path
+  end
+
+  def search
+    @tweets = Tweet.search(params[:keyword])
   end
 
   private
