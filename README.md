@@ -77,7 +77,9 @@ https://docs.google.com/spreadsheets/d/1Ib3H4wc7gvzvvtNCX9Yekyd6GwmPySua3otuh5Py
 ・rubocop：コード解析<br>
 ・MiniMagick：ImageMagickをRuby使う機能<br>
 ・ImageProcessing：画像サイズ調整機能<br>
-・aws-sdk-s3：画像の保存先をS3へ
+・aws-sdk-s3：画像の保存先をS3へ<br>
+・rspec：モデルテスト<br>
+・factory_bot：テストに必要な値を作成
 
 # ローカルでの動作方法
 以下のコマンドを順に実行。<br>
