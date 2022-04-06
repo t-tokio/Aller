@@ -40,8 +40,6 @@ Basic認証ID：9999<br>
 要件定義
 https://docs.google.com/spreadsheets/d/1Ib3H4wc7gvzvvtNCX9Yekyd6GwmPySua3otuh5PyZXc/edit#gid=982722306
 
-# 実装した機能についての画像やGIFおよびその説明
-
 # 実装予定の機能
 ①いいね機能<br>
 **「ユーザーの利便性向上とアプリケーションの充実性向上」**<br>
