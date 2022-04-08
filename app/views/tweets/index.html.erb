@@ -80,7 +80,7 @@
       <%= form.submit "検索", class: "search-btn" %>
       <% end %>
 
-
+    <%# 新規登録やログインログアウト部分 %>
       <div class="action-buttons-wrapper">
         <% if user_signed_in? %>
           <%= link_to user_path(current_user.id), class: "user-nickname" do%>
@@ -119,6 +119,7 @@
         </div>
       </div>
 
+    <%# ツイート表示部分 %>
       <div class="content-line content-line-list">
         <div class="line-header">
           <span class="header-text">つぶやき</span>
@@ -139,6 +140,7 @@
         </div>
       </div>
 
+    <%# 寄付募集表示部分 %>
       <div class="content-line content-line-list">
         <div class="line-header">
           <span class="header-text">寄付</span>
