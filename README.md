@@ -77,7 +77,9 @@ https://docs.google.com/spreadsheets/d/1Ib3H4wc7gvzvvtNCX9Yekyd6GwmPySua3otuh5Py
 ・ImageProcessing：画像サイズ調整機能<br>
 ・aws-sdk-s3：画像の保存先をS3へ<br>
 ・rspec：モデルテスト<br>
-・factory_bot：テストに必要な値を作成
+・factory_bot：テストに必要な値を作成<br>
+・faker：テストに必要なランダム値を作成<br>
+・pry-rails：デバックツール
 
 # ローカルでの動作方法
 以下のコマンドを順に実行。<br>
